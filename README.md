@@ -45,7 +45,7 @@
 
 # `QBO Home (Community Edition)`
 
-QBO is the fastest and easiest k8s deployment out there. It doesn't require virtual machines. It uses container only technology to deploy k8s clusters in seconds in Linux, MAC and Windows.  It has a web graphical interface and a Websockets API.  It is written in C and runs in docker.
+QBO is the fastest and easiest Kubernetes deployment. It doesn't require virtual machines. It uses container only technology to deploy k8s clusters in seconds in Linux, MAC and Windows.  It has a web graphical interface and a Websockets API.  It is written in C and runs in docker.
 
 QBO is a CNCF Certified Kubernetes Distribution
 https://www.cncf.io/certification/software-conformance/#logos 
@@ -56,7 +56,7 @@ Compatible with `Kind` images
 > Latest QBO API Docker  images: https://hub.docker.com/repository/docker/eadem/qbo-api
 
 > Watch the video
-[![Watch the video](https://img.youtube.com/vi/BJLIWLFHWLw/maxresdefault.jpg)](https://youtu.be/BJLIWLFHWLw)
+[![Watch the video](https://i.ytimg.com/vi/AOtZiKtjsJM/maxresdefault.jpg)](https://youtu.be/AOtZiKtjsJM)
 
 
 # Features

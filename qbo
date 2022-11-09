@@ -374,6 +374,7 @@ EOF
         # --privileged 
         docker run --rm --name qbo -d --privileged -p9601:9601 -it -e QBO_OPTS="--$log_level" -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
     else
+        # prod is in dockerhub
         i="eadem/$name-$bin"
         docker pull $i
         docker run --rm --name qbo -d --privileged -p9601:9601 -it -e QBO_OPTS="--$log_level" -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
