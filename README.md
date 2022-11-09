@@ -1,9 +1,14 @@
-<p float="left">
-  <img src="./qbo_250x150.svg" width="400" height="200"/>
-  <a href="https://github.com/cncf/k8s-conformance/tree/master/v1.25/qbo"><img src="./certified-kubernetes-color.svg" width="180" height="200" alt="Certified Kubernetes" /></a>
+<p>
+  <img src="./qbo_250x150.svg" width="500"/>
 </p>
 
-- [`QBO Home Edition`](#qbo-home-edition)
+<!-- ![Text](./qbo_250x150.svg) -->
+
+
+<a href="https://www.cncf.io/certification/software-conformance/#logos"><img src="./certified-kubernetes-color.svg" width="180" height="200" alt="Certified Kubernetes" /></a>
+
+
+- [`QBO Home (Community Edition)`](#qbo-home-community-edition)
 - [Features](#features)
 - [Download](#download)
 - [Configuration](#configuration)
@@ -17,6 +22,8 @@
     - [cgroups](#cgroups)
 - [Start QBO API](#start-qbo-api)
 - [Web Interface](#web-interface)
+  - [MAC](#mac)
+  - [Linux](#linux-1)
 - [QBO CLI](#qbo-cli)
 - [Cluster Operations](#cluster-operations)
   - [Add Cluster](#add-cluster)
@@ -36,13 +43,21 @@
 - [Nginx Ingress Controller](#nginx-ingress-controller)
 - [Istio](#istio)
 
-# `QBO Home Edition`
+# `QBO Home (Community Edition)`
 
-QBO is the fastest and easiest k8s deployment out there. It uses Docker in Docker [https://kind.sigs.k8s.io/](https://kind.sigs.k8s.io/) node images to deploy k8s clusters in seconds in MAC and Linux. It has a web graphical interface and a Websockets API. It doesn't require virtual machines. It is written in C and runs in docker.
+QBO is the fastest and easiest k8s deployment out there. It doesn't require virtual machines. It uses container only technology to deploy k8s clusters in seconds in Linux, MAC and Windows.  It has a web graphical interface and a Websockets API.  It is written in C and runs in docker.
 
-> See here for latest image: https://hub.docker.com/repository/docker/eadem/qbo-api
+QBO is a CNCF Certified Kubernetes Distribution
+https://www.cncf.io/certification/software-conformance/#logos 
 
-Compatible with docker `Kind` images [https://hub.docker.com/r/kindest/node/tags](https://hub.docker.com/r/kindest/node/tags)
+Compatible with `Kind` images
+[https://hub.docker.com/r/kindest/node/tags](https://hub.docker.com/r/kindest/node/tags)
+
+> Latest QBO API Docker  images: https://hub.docker.com/repository/docker/eadem/qbo-api
+
+> Watch the video
+[![Watch the video](https://img.youtube.com/vi/BJLIWLFHWLw/maxresdefault.jpg)](https://youtu.be/BJLIWLFHWLw)
+
 
 # Features
 
@@ -215,9 +230,20 @@ sudo dnf install jq
 ```
 
 # Web Interface
-> Access the web interface via a web browser: [http://localhost:9601/](http://localhost:9601/)
+> Access the web interface via a web browser at:
 
-![QBO web interface](qbo_web_interface.gif)
+## MAC
+> [http://localhost:9601/](http://localhost:9601/)
+
+
+## Linux
+ 
+> [http://172.17.0.2:9601/](http://172.17.0.2:9601/)  
+> or
+> 
+> [http://localhost:9601/](http://localhost:9601/)
+
+
 # QBO CLI
 
 ```

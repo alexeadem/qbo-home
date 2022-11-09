@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+# set -x
 
 EXITCODE=0
 
@@ -7,6 +7,8 @@ EXITCODE=0
 debug=0;
 build_type="prod"
 clean=0
+log_level="user"
+
 
 # bits of this were adapted from lxc-checkconfig
 # see also https://github.com/lxc/lxc/blob/lxc-1.0.2/src/lxc/lxc-checkconfig.in
@@ -270,13 +272,15 @@ name="qbo"
 
 usage() {
     # echo "$0 -s   - drop to shell"
-    echo "qbo start api         -- start $bin"
-    echo " -c                   -- start clean"
-    echo " -d                   -- start with valgrind"
-    echo "qbo stop api          -- stop $bin api"
-    echo "qbo attach terminal   -- attach $bin. (CTRL-p, CTL-q) to exit"
-    echo "qbo logs api          -- get $bin logs" 
-    echo " -f                   -- follow logs"
+    echo "qbo start api         -- Start $bin"
+    echo " -c                   -- Start clean"
+    echo " -d                   -- Start with valgrind"
+    echo " -r                   -- Set release type. Default: prod"
+    echo " -l { info | debug }  -- Set log level"
+    echo "qbo stop api          -- Stop $bin api"
+    echo "qbo attach terminal   -- Attach $bin. (CTRL-p, CTL-q) to exit"
+    echo "qbo logs api          -- Get $bin logs" 
+    echo " -f                   -- Follow logs"
     exit 1
 }
 
@@ -295,6 +299,8 @@ function start {
         sudo rm -f ~/.qbo/.qbo.db
         sudo rm -f ~/.qbo/cmd.log
         sudo rm -f ~/.qbo/qbo.dot
+        sudo rm -f ~/.qbo/messages
+        touch ~/.qbo/messages
         sudo ipvsadm -C
         sudo ipvsadm -Ln
     fi
@@ -363,11 +369,14 @@ EOF
     if [ $build_type == "stage" ]; then
         i="registry.eadem.com/alex/$repo/$name-$bin"
         docker pull $i
-        docker run --rm --name qbo -d -p9601:9601 -it -e QBO_OPTS=$@ -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
+        # Enable if coredumps are needed when valgrind is not running with the '-d' option
+        # qbo api coredumps will go under ~/.qbo/
+        # --privileged 
+        docker run --rm --name qbo -d --privileged -p9601:9601 -it -e QBO_OPTS="--$log_level" -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
     else
         i="eadem/$name-$bin"
         docker pull $i
-        docker run --rm --name qbo -d -p9601:9601 -it -e QBO_OPTS=$@ -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
+        docker run --rm --name qbo -d --privileged -p9601:9601 -it -e QBO_OPTS="--$log_level" -e HUSER=$(whoami) -e HUID=$(id -u) -e HGID=$g -v $HOME/.qbo/:/tmp/qbo/ -v /var/run/docker.sock:/var/run/docker.sock $i "start $opt"
     fi
 
 
@@ -512,7 +521,7 @@ echo -e "\033[38;5;${color}m => $@\033[0m"
 
     while getopts "f" opt; do
     case ${opt} in
-        f ) # run internal image
+        f )
             follow=1;
 			echo "-- follow logs"
         ;;

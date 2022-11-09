@@ -1,5 +1,18 @@
 # Changelog
 
+## [Version] - 2022-11-08
+
+### Changed
+
+- Changed default base image to minideb
+  - https://github.com/bitnami/minideb
+- 
+### Added
+
+- Improved UI
+  - https://youtu.be/BJLIWLFHWLw
+  
+
 ## [home-prod-4.3.2] - 2022-11-04
 
 ### Changed
