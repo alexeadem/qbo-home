@@ -1,11 +1,15 @@
-<p>
-  <img src="./qbo_250x150.svg" width="500"/>
-</p>
 
-<!-- ![Text](./qbo_250x150.svg) -->
+<div>
+ 
+
+<a><img src="./qbo_250x150.svg" width="500"/></a>
+ 
+<em>"Unlocking the power of cloud computing for anyone, anywhere."</em>
+
 
 
 <a href="https://www.cncf.io/certification/software-conformance/#logos"><img src="./certified-kubernetes-color.svg" width="180" height="200" alt="Certified Kubernetes" /></a>
+</div>
 
 
 - [`QBO Home (Community Edition)`](#qbo-home-community-edition)
@@ -42,6 +46,7 @@
 - [Custom Kind Images](#custom-kind-images)
 - [Nginx Ingress Controller](#nginx-ingress-controller)
 - [Istio](#istio)
+
 
 # `QBO Home (Community Edition)`
 
