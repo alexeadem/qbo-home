@@ -6,10 +6,8 @@
 <!-- [![Tag](https://img.shields.io/badge/version-v1.0.0-black)](https://github.com/alexeadem/qbo-docs/tags) -->
 
 
-
-> <p style="font-size: 3rem; line-height: normal;"> Unlocking the power of cloud computing for anyone, anywhere. </p> <!-- TODO: Replace with your description -->
-
->  QBO-HOME (COMMUNITY EDITION) DOCUMENTATION
+> Unlocking the power of cloud computing for anyone, anywhere.
+- QBO-HOME (COMMUNITY EDITION) DOCUMENTATION
 
 [![Version](https://img.shields.io/badge/qbo-home-blue)](https://github.com/alexeadem/qbo-docs/blob/main/LICENSE)
 [![Tag](https://img.shields.io/badge/dev-4.3.2--49c0db762-black)](https://github.com/alexeadem/qbo-docs/tags)
