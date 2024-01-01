@@ -1,0 +1,36 @@
+.sidebar-nav > ul > li > ul > li > ul {
+    margin: 5px 0 5px 0px;
+    padding-left: 15px;
+    border-left: 1px solid rgb(41, 128, 185, 0.4);
+}
+
+
+
+.sidebar ul li ul {
+    padding: 0;
+}
+
+.sidebar ul, .sidebar ul li {
+    list-style: none;
+}
+
+
+.sidebar li {
+     margin: 0px;
+}
+
+.app-sub-sidebar li:before {
+    display: none;
+}
+
+
+/* .sidebar ul li ul li ul {
+     padding: 0; 
+    margin: 5px 0 5px 0px;
+    padding-left: 15px;
+    border-left: 1px solid rgb(41, 128, 185, 0.4);
+} */
+
+.docsify-copy-code-button {
+    border-radius: 5px;
+}
