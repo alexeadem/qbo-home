@@ -13,7 +13,7 @@
   <!-- - [Authentication](auth.md) -->
   - [Web Interface](user_iface.md)
   - [CLI](cli.md)
-  - [API](https://asyncapi.qbo.io/)
+  - [API](https://spec.qbo.io/)
 - Images
   - [Registry](registry.md)
 - - [Custom Images](custom_images.md)
